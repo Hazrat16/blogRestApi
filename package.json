@@ -1,0 +1,33 @@
+{
+  "name": "blogrestapi",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js",
+    "dev": "nodemon index.js",
+    "build": "echo \"Error: no build specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --write .",
+    "prettier:check": "prettier --check .",
+    "format": "npm run prettier && npm run lint:fix",
+    "test:unit": "echo \"Error: no test specified\" && exit 1",
+    "test:integration": "echo \"Error: no test specified\" && exit 1",
+    "test:e2e": "echo \"Error: no test specified\" && exit 1",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:e2e",
+    "test:watch": "echo \"Error: no test specified\" && exit 1",
+    "test:coverage": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "mongoose": "^8.13.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
