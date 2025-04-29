@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const connectDB = require('./connectDB'); // Assuming connectDB.js is in the same directory
+const { signUpRoute } = require('./routes/auth/signUpRoute');
 
 require('dotenv').config();
 
@@ -16,6 +17,8 @@ app.use(bodyParser.json());
 app.get('/', (req, res) => {
     res.send('Welcome to the Blog REST API');
 });
+
+app.use('/api/signup', signUpRoute);
 
 // Connect to MongoDB
 mongoose
