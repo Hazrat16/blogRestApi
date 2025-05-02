@@ -1,4 +1,5 @@
 const User = require("../../models/userModel");
+const bcrypt = require('bcrypt');
 
 exports.signUp = async (req, res, next) => {
 

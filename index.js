@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const connectDB = require('./connectDB'); // Assuming connectDB.js is in the same directory
 const { signUpRoute } = require('./routes/auth/signUpRoute');
+const { loginRoute } = require('./routes/auth/loginRoute');
 
 require('dotenv').config();
 
@@ -19,6 +20,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/signup', signUpRoute);
+app.use('/api/login', loginRoute);
 
 // Connect to MongoDB
 mongoose
