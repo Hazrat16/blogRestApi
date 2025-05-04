@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const connectDB = require('./connectDB'); // Assuming connectDB.js is in the same directory
 const { signUpRoute } = require('./routes/auth/signUpRoute');
 const { loginRoute } = require('./routes/auth/loginRoute');
+const { userRoute } = require('./routes/userRoute');
 
 require('dotenv').config();
 
@@ -21,6 +22,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/signup', signUpRoute);
 app.use('/api/login', loginRoute);
+app.use('/api/user', userRoute);
 
 // Connect to MongoDB
 mongoose
