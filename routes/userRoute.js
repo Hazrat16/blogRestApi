@@ -7,4 +7,4 @@ userRoute.put("/:userId", authMiddleware, updateUser);
 userRoute.delete("/:userId", authMiddleware, deleteUser);
 userRoute.get("/:userId", authMiddleware, getUserById);
 
-exports.userRoute = userRoute;;
+exports.userRoute = userRoute;
