@@ -6,17 +6,21 @@ const postSchema = new mongoose.Schema({
         required: [true, 'Title is required'],
         trim: true,
     },
-    content: {
+    body: {
         type: String,
-        required: [true, 'Content is required'],
-        trim: true,
+        required: [true, 'Body is required'],
     },
-    author: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
+    username: {
+        type: String,
+        required: [true, 'Username is required'],
+        default: 'admin',
     },
-    image: {
+    category: {
+        type: Array,
+        required: false,
+    },
+    
+    photo: {
         type: String,
         required: true,
     },
