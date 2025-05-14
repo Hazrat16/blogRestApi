@@ -38,3 +38,33 @@ exports.getPostById = async (req, res, next) => {
       post
    });
 }
+
+//update post
+exports.updatePost = async (req, res, next) => {
+   const post = await Post.findByIdAndUpdate(req.params.id, req.body, {new: true}); 
+   if(!post) {
+      return res.status(404).json({
+         success: false,
+         message: "Post not found"
+      });
+   }
+   res.status(200).json({
+      success: true,
+      post
+   });
+}
+
+//delete post
+exports.deletePost = async (req, res, next) => {
+   const post = await Post.findByIdAndDelete(req.params.id);
+   if(!post) {
+      return res.status(404).json({
+         success: false,
+         message: "Post not found"
+      });
+   }
+   res.status(200).json({
+      success: true, 
+      message: "Post deleted successfully"
+   });
+}
