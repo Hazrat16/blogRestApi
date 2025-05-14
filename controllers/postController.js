@@ -12,11 +12,22 @@ exports.createPost = async (req, res, next) => {
 
 //get all posts
 exports.getAllPosts = async (req, res, next) => {
-   const posts = await Post.find();
-   res.status(200).json({
-      success: true,
-      posts
-   });
+   const {username, category} = req.query;
+   try {
+      const posts = await Post.find({
+         ...(username && {username}),
+         ...(category && {category})
+      });
+      res.status(200).json({
+         success: true,
+         posts
+      });
+   } catch (error) {
+      res.status(500).json({
+         success: false,
+         message: error.message
+         });
+   }
 }
 
 //get post by id
