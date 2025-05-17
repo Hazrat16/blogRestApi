@@ -7,11 +7,30 @@ const { loginRoute } = require('./routes/auth/loginRoute');
 const { userRoute } = require('./routes/userRoute');
 const { postRoute } = require('./routes/postRoute');
 const { categoryRoute } = require('./routes/categoryRoute');
+const morgan = require("morgan");
+const multer = require("multer");
 require('dotenv').config();
 
 const app = express();
+app.use(morgan("dev"));
 
 const PORT = process.env.PORT || 4000;
+
+//file upload by multer
+const uploadStorage = multer.diskStorage({
+    destination:(req, file, callback) =>{
+        callback(null,"./images")
+    },
+    filename:(req, file, callback) =>{
+        callback(null,file.originalname)
+    },
+})
+
+const upload = multer({storage:uploadStorage})
+
+app.post('/api/upload',upload.single("file"),(req,res)=>{
+    console.log("file found",req.file)
+})
 
 // Middleware
 app.use(bodyParser.json());
