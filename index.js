@@ -6,6 +6,7 @@ const { signUpRoute } = require('./routes/auth/signUpRoute');
 const { loginRoute } = require('./routes/auth/loginRoute');
 const { userRoute } = require('./routes/userRoute');
 const { postRoute } = require('./routes/postRoute');
+const { categoryRoute } = require('./routes/categoryRoute');
 require('dotenv').config();
 
 const app = express();
@@ -28,6 +29,9 @@ app.use('/api/user', userRoute);
 
 // Post Routes
 app.use('/api/post', postRoute);
+
+// Category Routes
+app.use('/api/category',categoryRoute)
 
 // Connect to MongoDB
 mongoose
